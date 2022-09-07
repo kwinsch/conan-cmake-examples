@@ -1,0 +1,16 @@
+pip3 --version
+pip3 install pyyaml
+pip3 install conan --pre --verbose
+conan --version
+apk add build-base cmake
+gcc --version
+mkdir -p conan/mylib-a
+mkdir -p conan/app
+cd conan/mylib-a
+conan new cmake_lib -d name=mylib-a -d version=0.1
+# edit files
+conan create . -v
+cd ../app
+conan new cmake_exe -d name=app -d version=0.1
+# edit files
+conan create . -v
